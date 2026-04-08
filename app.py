@@ -324,8 +324,19 @@ def build_scorecard(results, theme_stocks):
 # ============================================================
 
 def style_scorecard(df):
-    """Apply color coding to the scorecard dataframe."""
+    """Apply color coding to the scorecard dataframe.
+
+    Note: upstream code formats `Last Price` into a currency string (e.g. "$123.45").
+    Pandas Styler's numeric formatters will raise if they receive strings, so we
+    explicitly coerce numeric columns and avoid re-formatting `Last Price`.
+    """
     display_df = df.drop(columns=['_symbol'], errors='ignore').copy()
+
+    # Coerce numeric columns defensively (prevents Styler formatter errors)
+    numeric_cols = ['12M Ret', 'RSI(14)', 'vs 50DMA', 'vs 200DMA', 'Dist 52WH']
+    for c in numeric_cols:
+        if c in display_df.columns:
+            display_df[c] = pd.to_numeric(display_df[c], errors='coerce')
 
     def color_rsi(val):
         if pd.isna(val): return ''
@@ -391,7 +402,7 @@ def style_scorecard(df):
 
     # Number formatting
     styled = styled.format({
-        'Last Price': '{:.2f}',
+        # 'Last Price' is already a currency-formatted string upstream
         '12M Ret': '{:+.2f}%',
         'RSI(14)': '{:.1f}',
         'vs 50DMA': '{:+.2f}%',
