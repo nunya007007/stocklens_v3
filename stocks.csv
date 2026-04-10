@@ -1,0 +1,147 @@
+symbol,name,country,subsector,theme
+4062.T,Ibiden Co Ltd,Japan,Advanced Packaging,Semiconductors
+AMKR,Amkor Technology Inc,USA,Advanced Packaging,Semiconductors
+AIP,Arteris Inc,USA,Advanced Packaging,Semiconductors
+2802.T,Ajinomoto Co Inc,Japan,Advanced Packaging,Semiconductors
+BESI.AS,BE Semiconductor Industries NV,Netherlands,Advanced Packaging,Semiconductors
+6857.T,Advantest Corp,Japan,Test Equipment,Semiconductors
+6146.T,Disco Corporation,Japan,Precision Tools,Semiconductors
+ASML,ASML Holding NV,Netherlands,Lithography,Semiconductors
+KLAC,KLA Corporation,USA,Process Control,Semiconductors
+AVGO,Broadcom Inc,USA,Infrastructure,Semiconductors
+QCOM,QUALCOMM Incorporated,USA,Mobile/Wireless,Semiconductors
+MRVL,Marvell Technology Inc,USA,Data Infrastructure,Semiconductors
+NXPI,NXP Semiconductors NV,Netherlands,Automotive/IoT,Semiconductors
+LSCC,Lattice Semiconductor Corporation,USA,Edge AI,Semiconductors
+6526.T,Socionext Inc,Japan,SoC Design,Semiconductors
+IFX.DE,Infineon Technologies AG,Germany,Power/Automotive,Semiconductors
+SOI.PA,Soitec SA,France,SOI Wafers,Semiconductors
+ARM,Arm Holdings plc,UK,CPU Architecture,Semiconductors
+RMBS,Rambus Inc,USA,Memory Interface,Semiconductors
+CDNS,Cadence Design Systems Inc,USA,EDA Tools,Semiconductors
+SNPS,Synopsys Inc,USA,EDA Tools,Semiconductors
+HO.PA,Thales SA,France,Defense Electronics,Semiconductors
+SIE.DE,Siemens AG,Germany,Industrial Tech,Semiconductors
+VRT,Vertiv Holdings Co,USA,Data Center Infrastructure,Full Stack
+MRVL,Marvell Technology Inc,USA,Semiconductors,Full Stack
+INTC,Intel Corporation,USA,Semiconductors,Full Stack
+CSCO,Cisco Systems Inc,USA,Networking Equipment,Full Stack
+000660.KS,SK Hynix Inc,South Korea,Memory Semiconductors,Full Stack
+MU,Micron Technology Inc,USA,Memory Semiconductors,Full Stack
+DELL,Dell Technologies Inc,USA,IT Hardware & Servers,Full Stack
+MOD,Modine Manufacturing Co,USA,Thermal Management,Full Stack
+SU.PA,Schneider Electric SE,France,Power Management,Full Stack
+2330.TT,Taiwan Semiconductor Mfg,Taiwan,Semiconductor Manufacturing,Full Stack
+ETN,Eaton Corporation plc,USA,Power Management,Full Stack
+ANET,Arista Networks Inc,USA,Networking Equipment,Full Stack
+AVGO,Broadcom Inc,USA,Semiconductors,Full Stack
+AMD,Advanced Micro Devices Inc,USA,Semiconductors,Full Stack
+ARM,Arm Holdings plc,UK,Semiconductor IP,Full Stack
+SMCI,Super Micro Computer Inc,USA,IT Hardware & Servers,Full Stack
+PSTG,Pure Storage Inc,USA,Data Storage,Full Stack
+HPE,Hewlett Packard Enterprise,USA,IT Hardware & Servers,Full Stack
+2802.T,Ajinomoto Co Inc,Japan,Specialty Chemicals,Chemicals
+CC,Chemours Company,USA,Specialty Chemicals,Chemicals
+ESI,Element Solutions Inc,USA,Specialty Chemicals,Chemicals
+ENTG,Entegris Inc,USA,Semiconductor Materials,Chemicals
+4203.T,Sumitomo Bakelite Co Ltd,Japan,Specialty Chemicals,Chemicals
+4186.T,Tokyo Ohka Kogyo Co Ltd,Japan,Semiconductor Materials,Chemicals
+MKSI,MKS Instruments Inc,USA,Semiconductor Equipment,Chemicals
+MRN.PA,Mersen SA,France,Specialty Chemicals,Chemicals
+ROG,Rogers Corporation,USA,Advanced Materials,Chemicals
+4063.T,Shin-Etsu Chemical Co Ltd,Japan,Semiconductor Materials,Chemicals
+CE,Celanese Corporation,USA,Specialty Chemicals,Chemicals
+HEN3.DE,Henkel AG & Co KGaA,Germany,Specialty Chemicals,Chemicals
+Q,Qorvo Inc,USA,Electronic Components,Chemicals
+MRK.DE,Merck KGaA,Germany,Life Science Chemicals,Chemicals
+CBT,Cabot Corporation,USA,Specialty Chemicals,Chemicals
+AKE.PA,Arkema SA,France,Specialty Chemicals,Chemicals
+VCTX.L,Victrex plc,UK,Advanced Material,Chemicals
+GLW,Corning Inc,USA,Optical Fiber,Fiber Optics
+CIEN,Ciena Corporation,USA,Optical Networking,Fiber Optics
+COHR,Coherent Corp,USA,Optical Components,Fiber Optics
+FN,Fabrinet,USA,Optical Manufacturing,Fiber Optics
+APH,Amphenol Corporation,USA,Connectivity Solutions,Fiber Optics
+ALAB,Astera Labs Inc,USA,Optical Networking,Fiber Optics
+VRT,Vertiv Holdings Co,USA,Data Center Infrastructure,Fiber Optics
+VIAV,Viavi Solutions Inc,USA,Network Test & Measurement,Fiber Optics
+PRY.MI,Prysmian SpA,Italy,Optical Fiber Cable,Fiber Optics
+AAOI,Applied Optoelectronics Inc,USA,Optical Components,Fiber Optics
+VISN,Vision Marine Technologies,Canada,Optical Networking,Fiber Optics
+LITE,Lumentum Holdings Inc,USA,Optical Components,Fiber Optics
+NVDA,NVIDIA Corporation,USA,Semiconductors,Fiber Optics
+BDC,Belden Inc,USA,Network Cabling,Fiber Optics
+AVGO,Broadcom Inc,USA,Semiconductors,Fiber Optics
+CRDO,Credo Technology Group,USA,Optical Networking,Fiber Optics
+SOTL.NS,Sterlite Technologies Ltd,India,Optical Fiber Cable,Fiber Optics
+MRVL,Marvell Technology Inc,USA,Semiconductors,Fiber Optics
+CLFD,Clearfield Inc,USA,Optical Fiber,Fiber Optics
+EXTR,Extreme Networks Inc,USA,Networking Equipment,Fiber Optics
+BE,Bloom Energy Corporation,USA,Fuel Cells & Clean Energy,Power Energy
+CAT,Caterpillar Inc,USA,Industrial Machinery,Power Energy
+CVX,Chevron Corporation,USA,Integrated Oil & Gas,Power Energy
+XOM,Exxon Mobil Corporation,USA,Integrated Oil & Gas,Power Energy
+FLNC,Fluence Energy Inc,USA,Energy Storage,Power Energy
+HUBB,Hubbell Inc,USA,Electrical Equipment,Power Energy
+NVT,nVent Electric plc,USA,Electrical Equipment,Power Energy
+POWL,Powell Industries Inc,USA,Electrical Equipment,Power Energy
+PWR,Quanta Services Inc,USA,Energy Infrastructure Services,Power Energy
+D,Dominion Energy Inc,USA,Electric Utilities,Power Energy
+EME,EMCOR Group Inc,USA,Electrical Contractors,Power Energy
+ETR,Entergy Corporation,USA,Electric Utilities,Power Energy
+EOSE,Eos Energy Enterprises Inc,USA,Energy Storage,Power Energy
+GEV,GE Vernova Inc,USA,Power Generation,Power Energy
+J,Jacobs Solutions Inc,USA,Engineering Services,Power Energy
+NEE,NextEra Energy Inc,USA,Electric Utilities,Power Energy
+WMB,Williams Companies Inc,USA,Natural Gas Pipelines,Power Energy
+BIPC,Brookfield Infrastructure Corp,USA,Infrastructure,Power Energy
+CEG,Constellation Energy Corporation,USA,Nuclear & Clean Energy,Power Energy
+ET,Energy Transfer LP,USA,Natural Gas Pipelines,Power Energy
+KMI,Kinder Morgan Inc,USA,Natural Gas Pipelines,Power Energy
+MOD,Modine Manufacturing Co,USA,Thermal Management,Power Energy
+TT,Trane Technologies plc,USA,HVAC & Climate Control,Power Energy
+ETN,Eaton Corporation plc,USA,Electrical Equipment,Power Energy
+ACM,AECOM,USA,Engineering Services,Power Energy
+VST,Vistra Corp,USA,Power Generation,Power Energy
+CCJ,Cameco Corporation,Canada,Nuclear Uranium,Power Energy
+UUUU,Energy Fuels Inc,USA,Nuclear Uranium,Power Energy
+XLE,Energy Select Sector SPDR ETF,USA,Energy ETF,Power Energy
+ABB,ABB Ltd,Switzerland,Power & Automation,Power Energy
+VRT,Vertiv Holdings Co,USA,Data Center Infrastructure,Power Energy
+EQT,EQT Corporation,USA,Natural Gas E&P,Power Energy
+CORZ,Core Scientific Inc,USA,AI Power convert,BTC Miners
+BTDR,Bitdeer Technologies Group,USA,AI Power convert,BTC Miners
+CLSK,CleanSpark Inc,USA,AI Power convert,BTC Miners
+RIOT,Riot Platforms Inc,USA,AI Power convert,BTC Miners
+MARA,MARA Holdings Inc,USA,AI Power convert,BTC Miners
+CIFR,Cipher Mining Inc,USA,AI Power convert,BTC Miners
+IREN,IREN Ltd,Australia,AI Power convert,BTC Miners
+HUT,Hut 8 Corp,Canada,AI Power convert,BTC Miners
+BITF,Bitfarms Ltd,Canada,AI Power convert,BTC Miners
+COPX,Global X Copper Miners ETF,USA,Copper,Commodities
+BHP,BHP Group Ltd,Australia,Copper,Commodities
+TECK,Teck Resources Ltd,Canada,Copper,Commodities
+SOUHY,South32 Ltd,Australia,Pick Shovel,Commodities
+6301.T,Komatsu Ltd,Japan,Pick Shovel,Commodities
+CAT,Caterpillar Inc,USA,Pick Shovel,Commodities
+IMD.AX,Imdex Limited,Australia,Pick Shovel,Commodities
+PRN.AX,Perenti Limited,Australia,Pick Shovel,Commodities
+OUKPY,Metso Oyj,Finland,Pick Shovel,Commodities
+WEGRY,Weir Group plc,UK,Pick Shovel,Commodities
+FLS.CO,FLSmidth & Co A/S,Denmark,Pick Shovel,Commodities
+EPOKY,Epiroc AB,Sweden,Pick Shovel,Commodities
+SDVKY,Sandvik AB,Sweden,Pick Shovel,Commodities
+FLR,Fluor Corporation,USA,Pick Shovel,Commodities
+GLD,SPDR Gold Shares ETF,USA,Gold Metal ETF,Commodities
+SLV,iShares Silver Trust ETF,USA,Silver Metal ETF,Commodities
+GDX,VanEck Gold Miners ETF,USA,Gold Miners ETF,Commodities
+SIL,Global X Silver Miners ETF,USA,Silver Miners ETF,Commodities
+ROBO,ROBO Global Robotics & Automation Index ETF,USA,Robotics & Automation ETF,Other
+EWZ,iShares MSCI Brazil ETF,USA,Country ETF - Brazil,Other
+XLB,Materials Select Sector SPDR ETF,USA,Sector ETF - Materials,Other
+XLI,Industrial Select Sector SPDR ETF,USA,Sector ETF - Industrials,Other
+XLP,Consumer Staples Select Sector SPDR ETF,USA,Sector ETF - Staples,Other
+VOO,Vanguard S&P 500 ETF,USA,Broad Market ETF,Other
+IWM,iShares Russell 2000 ETF,USA,Small Cap ETF,Other
+EFA,iShares MSCI EAFE ETF,USA,International Developed ETF,Other
+EEM,iShares MSCI Emerging Markets ETF,USA,Emerging Markets ETF,Other
