@@ -6,7 +6,7 @@ Single-file application: fetches data, calculates indicators, renders dashboard.
 import streamlit as st
 import yfinance as yf
 import pandas as pd
-import pandas_ta as ta
+# import pandas_ta as ta  # Removed for Python 3.14 compatibility
 import plotly.graph_objects as go
 from datetime import datetime, timedelta
 import time
@@ -224,22 +224,34 @@ def run_full_refresh(stock_list):
 # TECHNICAL INDICATOR CALCULATIONS
 # ============================================================
 def calculate_indicators(df):
-    """Calculate all technical indicators for a stock using pandas-ta."""
+    """Calculate all technical indicators for a stock (pure pandas/numpy)."""
     try:
-        rsi = df.ta.rsi(length=14)
-        if rsi is not None:
-            df['RSI_14'] = rsi
-        macd = df.ta.macd(fast=12, slow=26, signal=9)
-        if macd is not None:
-            df = pd.concat([df, macd], axis=1)
-        sma50 = df.ta.sma(length=50)
-        if sma50 is not None:
-            df['SMA_50'] = sma50
-        sma200 = df.ta.sma(length=200)
-        if sma200 is not None:
-            df['SMA_200'] = sma200
-        if 'SMA_200' in df.columns:
-            df['SMA_200_slope'] = df['SMA_200'].diff(10)
+        close = df['Close']
+
+        # RSI (14) - Wilder-style smoothing
+        length = 14
+        delta = close.diff()
+        gain = delta.clip(lower=0)
+        loss = (-delta).clip(lower=0)
+        avg_gain = gain.ewm(alpha=1 / length, adjust=False, min_periods=length).mean()
+        avg_loss = loss.ewm(alpha=1 / length, adjust=False, min_periods=length).mean()
+        rs = avg_gain / avg_loss.replace(0, np.nan)
+        df['RSI_14'] = 100 - (100 / (1 + rs))
+
+        # MACD (12, 26, 9)
+        ema_fast = close.ewm(span=12, adjust=False, min_periods=12).mean()
+        ema_slow = close.ewm(span=26, adjust=False, min_periods=26).mean()
+        macd_line = ema_fast - ema_slow
+        signal_line = macd_line.ewm(span=9, adjust=False, min_periods=9).mean()
+        hist = macd_line - signal_line
+        df['MACD_12_26_9'] = macd_line
+        df['MACDs_12_26_9'] = signal_line
+        df['MACDh_12_26_9'] = hist
+
+        # SMA (50, 200)
+        df['SMA_50'] = close.rolling(window=50, min_periods=50).mean()
+        df['SMA_200'] = close.rolling(window=200, min_periods=200).mean()
+        df['SMA_200_slope'] = df['SMA_200'].diff(10)
     except Exception:
         pass
     return df
