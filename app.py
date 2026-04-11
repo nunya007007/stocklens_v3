@@ -454,8 +454,11 @@ def calculate_composite_rating(df):
         confluence_note: description of signal alignment
     """
     try:
-        if len(df) < 200:
-            return ('Insufficient Data', 0, 'Need at least 200 days of data')
+        # DEBUG: Log dataframe info for troubleshooting
+        # st.write(f"DEBUG: DataFrame shape={df.shape}, columns={list(df.columns)}")
+        
+        if len(df) < 50:  # Reduced from 200 to 50 days for better compatibility
+            return ('Insufficient Data', 0, f'Need at least 50 days of data (have {len(df)})')
         
         latest = df.iloc[-1]
         prev = df.iloc[-2] if len(df) > 1 else latest
@@ -750,6 +753,10 @@ def calculate_composite_rating(df):
         return (rating, round(composite_score, 1), confluence)
         
     except Exception as e:
+        # Log error details for debugging (visible in Streamlit Cloud logs)
+        import traceback
+        error_details = f"Signal calc error: {str(e)}\n{traceback.format_exc()}"
+        print(error_details)  # Will appear in Streamlit Cloud logs
         return ('Error', 0, f'Calculation error: {str(e)}')
 
 # ============================================================
@@ -865,13 +872,16 @@ def build_scorecard(results, theme_stocks):
         # Calculate composite rating (Signal)
         signal_rating, signal_score, signal_note = calculate_composite_rating(df)
 
+        # Ensure signal_rating is always a string for consistent display
+        signal_rating_str = str(signal_rating) if signal_rating is not None else 'Error'
+        
         rows.append({
             'Ticker': symbol,
             'Company': stock_data.get('name', ''),
             'Country': stock_data.get('country', ''),
             'Subsector': stock_data.get('subsector', ''),
             'Last Price': price,
-            'Signal': signal_rating,
+            'Signal': signal_rating_str,
             '12M Ret': ret_12m,
             'RSI(14)': rsi,
             'Trend': trend,
@@ -932,6 +942,8 @@ def style_scorecard(df):
             return 'color: #FF4444'
         elif val == 'Strong Sell':
             return 'color: #DC2626; font-weight: bold'
+        elif val in ('Insufficient Data', 'Error'):
+            return 'color: #6B7280; font-style: italic'  # Gray for error/insufficient states
         return ''
 
     def color_pct(val):
@@ -1349,6 +1361,14 @@ def main():
                 for _, row in scorecard.iterrows():
                     price_formatted.append(format_price(row['Last Price'], row['_symbol']))
                 scorecard['Last Price'] = price_formatted
+
+                # DEBUG: Verify Signal column exists and has values
+                if 'Signal' not in scorecard.columns:
+                    st.error("DEBUG: Signal column missing from scorecard!")
+                    st.write("Available columns:", list(scorecard.columns))
+                else:
+                    signal_values = scorecard['Signal'].unique()
+                    # st.write(f"DEBUG: Signal values: {signal_values}")  # Uncomment to debug
 
                 # Style and display
                 styled = style_scorecard(scorecard)
