@@ -103,8 +103,10 @@ st.markdown("""
     }
     div[data-testid="stDataFrame"] thead tr th {
         background-color: var(--bg-secondary) !important;
-        /* Teal header text to match old dashboard */
+        /* Muted teal header text to match old dashboard */
         color: #14B8A6 !important;
+        /* Center-align headers */
+        text-align: center !important;
         border-bottom: 1px solid var(--border-primary) !important;
     }
     div[data-testid="stDataFrame"] tbody tr td {
@@ -931,17 +933,17 @@ def style_scorecard(df):
         return ''
 
     def color_signal(val):
-        """Color code Signal column based on composite rating."""
+        """Color code Signal column based on composite rating - using dashboard color scheme."""
         if val == 'Strong Buy':
-            return 'color: #00FF00; font-weight: bold'
+            return 'color: #10B981; font-weight: bold'  # Dashboard green
         elif val == 'Buy':
-            return 'color: #22C55E'
+            return 'color: #10B981'  # Dashboard green
         elif val == 'Neutral':
-            return 'color: #FFD700'
+            return 'color: #F59E0B'  # Dashboard gold
         elif val == 'Sell':
-            return 'color: #FF4444'
+            return 'color: #EF4444'  # Dashboard red
         elif val == 'Strong Sell':
-            return 'color: #DC2626; font-weight: bold'
+            return 'color: #EF4444; font-weight: bold'  # Dashboard red
         elif val in ('Insufficient Data', 'Error'):
             return 'color: #6B7280; font-style: italic'  # Gray for error/insufficient states
         return ''
@@ -989,6 +991,7 @@ def style_scorecard(df):
                 ("color", "#14B8A6"),
                 ("background-color", "#141720"),
                 ("border-bottom", "1px solid rgba(180, 188, 208, 0.15)"),
+                ("text-align", "center"),
             ],
         },
         {
@@ -1104,7 +1107,7 @@ def calculate_theme_index(results, theme_stocks, time_period="12 Month"):
 
 def render_dashboard_view(results, stock_list):
     """Render the Index-Level Dashboard view."""
-    st.markdown("## Index-Level Dashboard")
+    st.markdown('<h2 style="color:#F59E0B;">Index-Level Dashboard</h2>', unsafe_allow_html=True)
 
     themes = stock_list['theme'].unique().tolist()
     
@@ -1256,16 +1259,17 @@ def render_dashboard_view(results, stock_list):
 # ============================================================
 
 def render_legend():
-    """Render the color-coded legend."""
+    """Render the color-coded legend with detailed scoring explanation."""
     st.markdown("""
     <div class="legend-text">
-    <strong>Sorted by twelve month_return, descending.</strong><br><br>
-    <strong>Signal:</strong>
-    <span style="color:#00FF00; font-weight:bold">Strong Buy</span> •
-    <span style="color:#22C55E">Buy</span> •
-    <span style="color:#FFD700">Neutral</span> •
-    <span style="color:#FF4444">Sell</span> •
-    <span style="color:#DC2626; font-weight:bold">Strong Sell</span> — Composite of 11 technical indicators<br>
+    <strong>Sorted by twelve month return, descending.</strong><br><br>
+    <strong>Signal (Composite of 11 Weighted Indicators):</strong><br>
+    <span style="color:#10B981; font-weight:bold">Strong Buy</span> (Score ≥70) •
+    <span style="color:#10B981">Buy</span> (Score 40-69) •
+    <span style="color:#F59E0B">Neutral</span> (Score -39 to +39) •
+    <span style="color:#EF4444">Sell</span> (Score -69 to -40) •
+    <span style="color:#EF4444; font-weight:bold">Strong Sell</span> (Score ≤-70)<br>
+    <em>Indicator Weights: Trend 20% • MACD 15% • RSI 15% • ADX 10% • Bollinger %B 10% • Golden/Death Cross 10% • 12M Return 10% • Volume 5% • vs 50DMA 5% • vs 200DMA 5% • Dist from 52W High 5%</em><br><br>
     <strong>RSI:</strong>
     <span style="color:#10B981">Green=Oversold(&lt;30)</span> •
     <span style="color:#F59E0B">Gold=Neutral(30-70)</span> •
@@ -1346,7 +1350,7 @@ def main():
                 theme_stocks = stock_list[stock_list['theme'] == theme]
                 n = len(theme_stocks)
 
-                st.markdown(f"### Summary Scorecard — All {n} {theme} Stocks")
+                st.markdown(f'<h3 style="color:#F59E0B;">Summary Scorecard — All {n} {theme} Stocks</h3>', unsafe_allow_html=True)
                 st.caption(f"Last updated: {datetime.now().strftime('%b %d, %Y, %I:%M %p CDT')}")
 
                 # Build scorecard
