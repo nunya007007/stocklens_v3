@@ -59,16 +59,6 @@ st.markdown("""
         color: var(--text-primary);
     }
 
-    /* Title and header colors - Gold (#F59E0B) */
-    h1, h2, h3, h4, h5, h6 {
-        color: #F59E0B !important;
-    }
-    
-    /* Streamlit-specific heading containers */
-    .stHeading h1, .stHeading h2, .stHeading h3 {
-        color: #F59E0B !important;
-    }
-    
     /* Improve default text colors */
     .stMarkdown, .stText, .stCaption, label, p, span, div {
         color: var(--text-primary);
@@ -1106,7 +1096,7 @@ def calculate_theme_index(results, theme_stocks, time_period="12 Month"):
 
 def render_dashboard_view(results, stock_list):
     """Render the Index-Level Dashboard view."""
-    st.markdown('<h2 style="color:#F59E0B;">Index-Level Dashboard</h2>', unsafe_allow_html=True)
+    st.markdown("## Index-Level Dashboard")
 
     themes = stock_list['theme'].unique().tolist()
     
@@ -1295,11 +1285,7 @@ def main():
     # Header
     col_title, col_nav = st.columns([4, 1])
     with col_title:
-        # Gold title to match V2 accent color
-        st.markdown(
-            '<h1 style="color:#F59E0B; margin-bottom: 0;">📊 StockLens</h1>',
-            unsafe_allow_html=True,
-        )
+        st.title("📊 StockLens")
     with col_nav:
         view = st.selectbox("", ["Dashboard", "Trending"], label_visibility="collapsed")
 
@@ -1349,7 +1335,7 @@ def main():
                 theme_stocks = stock_list[stock_list['theme'] == theme]
                 n = len(theme_stocks)
 
-                st.markdown(f'<h3 style="color:#F59E0B;">Summary Scorecard — All {n} {theme} Stocks</h3>', unsafe_allow_html=True)
+                st.markdown(f"### Summary Scorecard — All {n} {theme} Stocks")
                 st.caption(f"Last updated: {datetime.now().strftime('%b %d, %Y, %I:%M %p CDT')}")
 
                 # Build scorecard
