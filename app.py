@@ -59,9 +59,18 @@ st.markdown("""
         color: var(--text-primary);
     }
 
+    /* Title and header colors - Gold (#F59E0B) */
+    h1, h2, h3, h4, h5, h6 {
+        color: #F59E0B !important;
+    }
+    
+    /* Streamlit-specific heading containers */
+    .stHeading h1, .stHeading h2, .stHeading h3 {
+        color: #F59E0B !important;
+    }
+    
     /* Improve default text colors */
-    .stMarkdown, .stText, .stCaption, .stSubheader, .stHeader, .stTitle,
-    label, p, span, div {
+    .stMarkdown, .stText, .stCaption, label, p, span, div {
         color: var(--text-primary);
     }
     .stCaption { color: var(--text-secondary) !important; }
@@ -91,31 +100,21 @@ st.markdown("""
         box-shadow: 0 0 0 1px rgba(0,0,0,0.15);
     }
 
-    /* Dataframe / table styling */
+    /* Dataframe / table styling
+       NOTE: st.dataframe uses a React grid component that ignores most CSS table selectors.
+       Header styling (text color, alignment) must be done via:
+       1. .streamlit/config.toml (theme settings - limited control)
+       2. Pandas Styler set_table_styles() with st.table() (full control, no interactivity)
+       3. column_config in st.dataframe() (alignment only)
+       
+       Cell-level styling works via Pandas Styler .map() method.
+       See RESEARCH_FINDINGS.md for detailed explanation.
+    */
     div[data-testid="stDataFrame"] {
         background-color: var(--bg-tertiary);
         border: 1px solid var(--border-primary);
         border-radius: 12px;
         padding: 6px;
-    }
-    div[data-testid="stDataFrame"] table {
-        color: var(--text-secondary) !important;
-    }
-    div[data-testid="stDataFrame"] thead tr th {
-        background-color: var(--bg-secondary) !important;
-        /* Muted teal header text to match old dashboard */
-        color: #14B8A6 !important;
-        /* Center-align headers */
-        text-align: center !important;
-        border-bottom: 1px solid var(--border-primary) !important;
-    }
-    div[data-testid="stDataFrame"] tbody tr td {
-        background-color: var(--bg-tertiary) !important;
-        color: var(--text-secondary) !important;
-        border-bottom: 1px solid rgba(55, 65, 81, 0.65) !important;
-    }
-    div[data-testid="stDataFrame"] tbody tr:hover td {
-        background-color: var(--bg-card) !important;
     }
 
     /* Hide Streamlit branding */
